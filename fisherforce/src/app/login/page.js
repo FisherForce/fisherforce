@@ -4,9 +4,10 @@ import { supabase } from "../../lib/supabase";
 
 export default function Login() {
   async function login() {
-    await supabase.auth.signInWithOAuth({
-      provider: "google"
-    });
+await supabase.auth.signInWithOtp({
+  email
+});
+
   }
 
   return (
@@ -16,3 +17,4 @@ export default function Login() {
     </div>
   );
 }
+

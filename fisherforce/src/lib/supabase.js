@@ -1,15 +1,14 @@
-// Fichier temporaire pour éviter les erreurs Supabase
-// Fisherforce fonctionne même sans Supabase pour l'instant
+// src/lib/supabase.js
+// Version temporaire : Supabase désactivé pour le développement sans erreur
 
 export const supabase = {
+  from: () => ({
+    select: async () => ({ data: [], error: null }),
+    insert: async () => ({ data: [], error: null }),
+  }),
   auth: {
     signInWithOtp: async () => ({ error: null }),
     signOut: async () => ({ error: null }),
     getSession: async () => ({ session: null }),
   },
-  from: () => ({
-    select: () => ({ data: [], error: null }),
-    insert: () => ({ data: [], error: null }),
-    update: () => ({ data: [], error: null }),
-  }),
 };

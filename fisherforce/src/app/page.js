@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import VideoCard from "../components/VideoCard";
+import { supabase } from "../lib/supabase";
 
-// Version temporaire : pas de Supabase, vidéos fictives
 export default function Home() {
   const [videos, setVideos] = useState([]);
 
@@ -12,7 +12,7 @@ export default function Home() {
   }, []);
 
   async function loadFeed() {
-    // Vidéos factices pour tester l'affichage
+    // Faux feed de test
     const fakeVideos = [
       {
         id: "1",
@@ -34,12 +34,11 @@ export default function Home() {
       },
     ];
 
-    // Simuler un petit délai comme si c'était Supabase
-    setTimeout(() => setVideos(fakeVideos), 500);
+    setTimeout(() => setVideos(fakeVideos), 300);
   }
 
   return (
-    <main className="feed" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", padding: "20px" }}>
+    <main style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", padding: "20px" }}>
       {videos.length === 0 ? (
         <p style={{ color: "white" }}>Chargement du feed...</p>
       ) : (
@@ -48,4 +47,3 @@ export default function Home() {
     </main>
   );
 }
-
